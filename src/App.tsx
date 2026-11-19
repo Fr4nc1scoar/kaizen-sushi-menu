@@ -34,11 +34,11 @@ export default function App() {
   const [isDark, setIsDark] = useState<boolean>(() => {
     try {
       const saved = localStorage.getItem('kaizen-theme');
-      if (saved === 'dark') return true;
       if (saved === 'light') return false;
-      return false; // Default to clean Light Zen theme
+      if (saved === 'dark') return true;
+      return true; // Dark mode by default
     } catch {
-      return false;
+      return true;
     }
   });
 
